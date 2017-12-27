@@ -1,7 +1,7 @@
 {
  File: States.inc
 
- ISO 3166 include file
+ ISO 3166, 3166-1, 3166-2 & 3166-3 implementation part
 
  Author : Frédéric Libaud (http://www.libaudfrederic.fr)
 

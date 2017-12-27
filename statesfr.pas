@@ -1,6 +1,21 @@
+{
+ Unit : StatesFR.pas
+
+ ISO 3166, 3166-1, 3166-2 & 3166-3 implementation part. French states names.
+
+ Author : Frédéric Libaud (http://www.libaudfrederic.fr)
+
+ Licence : LGPL V3.0+
+
+ =============================================================================
+ history
+ -----------------------------------------------------------------------------
+}
 unit StatesFR;
 
+{$ifdef FPC}
 {$mode objfpc}{$H+}
+{$endif}
 
 interface
 

@@ -1,12 +1,22 @@
 {
 
+ Unit : StatesPhones.pas
+
  ITU (International Telecommunication Union) E.164 recommandation implementation
 
+ Author : Frédéric Libaud (http://www.libaudfrederic.fr)
 
+ Licence : LGPL V3.0+
+
+ =============================================================================
+ history
+ -----------------------------------------------------------------------------
 }
 unit StatesPhones;
 
+{$ifdef FPC}
 {$mode objfpc}{$H+}
+{$endif}
 
 interface
 
@@ -273,7 +283,14 @@ const
    {248}(StateCode:'PRI'; PhoneCode: 1939) { Puerto Rico (Second) }
   );
 
+{
+ Give the phone code for a state
+}
 function StateToPhoneCode(aStateCode: TISO31663): word;
+
+{
+ Give the state for a phone code as ISO 3166 standard (3 chars)
+}
 function PhoneToStateCode(aPhoneCode: word): TISO31663;
 
 implementation
