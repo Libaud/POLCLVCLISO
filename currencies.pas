@@ -396,6 +396,9 @@ function CurrencieSymbol(aCurrencieSymbol: TCurrencieSymbol): string;
 
 function CurrencieConvert(aSource: System.Currency; aRate: real): System.Currency;
 
+function IsCurrencieExist(aISO: TCurrencieCode): boolean;
+
+function CurrencieISO3Symbol(aISO: TCurrencieCode): TCurrencieSymbol;
 function CurrencieISO2Name(aISO: TCurrencieCode): string;
 
 procedure CurrencieList(var aList: TStringList);
@@ -421,11 +424,30 @@ begin
   Result:= aSource * aRate;
 end;
 
+function IsCurrencieExist(aISO: TCurrencieCode): boolean;
+var
+  iCurrencie: integer;
+begin
+  Result:= false;
+  for iCurrencie:= 0 to Length(CurrenciesStatesTable) - 1 do
+    if CurrenciesStatesTable[iCurrencie].Currencie = aISO then
+      Result:= true;
+end;
+
+function CurrencieISO3Symbol(aISO: TCurrencieCode): TCurrencieSymbol;
+var
+  iCurrencie: integer;
+begin
+  for iCurrencie:= 0 to Length(CurrenciesStatesTable) - 1 do
+    if CurrenciesStatesTable[iCurrencie].Currencie = aISO then
+      Result:= CurrenciesStatesTable[iCurrencie].Symbol;
+end;
+
 function CurrencieISO2Name(aISO: TCurrencieCode): string;
 var
   iCurrencie: integer;
 begin
-  for iCurrencie:= 0 to 59 do
+  for iCurrencie:= 0 to Length(CurrenciesStatesTable) - 1 do
     if CurrenciesStatesTable[iCurrencie].Currencie = aISO then
       Result:= CurrenciesStatesTable[iCurrencie].Currencie;
 end;
